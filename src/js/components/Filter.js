@@ -24,18 +24,20 @@ class Filter {
               <fieldset class="filter__movies">
               <legend class="filter__movies__legend">Filter</legend>
               <p class="filter__movies__text">Year</p>
-              <select class="filter__movies__year" value="" ></select>
+              <select class="filter__movies__year">
+                <option value="0" selected>-- filter by year --</option>
+              </select>
               <p class="filter__movies__text">Type</p>
-              <input id="movie" type="checkbox">
+              <input id="movie" type="checkbox" checked>
               <label class="checkbox" for="movie"> movie </label>
-              <input id="game" type="checkbox" >
+              <input id="game" type="checkbox" checked>
               <label class="checkbox" for="game"> game </label>
-              <input id="series" type="checkbox" >
+              <input id="series" type="checkbox" checked>
               <label class="checkbox" for="series"> series </label>
-              <input id="episode" type="checkbox" >
+              <input id="episode" type="checkbox" checked>
               <label class="checkbox" for="episode"> episode </label>
               <p class="filter__movies__text">Optional filter</p>
-              <input id="poster" type="checkbox" >
+              <input id="poster" type="checkbox">
               <label class="checkbox" for="poster"> Only with Poster </label>
               </fieldset>
           </section>  
@@ -64,19 +66,19 @@ class Filter {
         );
       });
     this._domRef.addEventListener('click', e => {
-      if (e.target.checked === true && e.target.id === 'movie') {
+      if (e.target.id === 'movie') {
         store.dispatch(filterMovie());
       }
-      if (e.target.checked === true && e.target.id === 'game') {
+      if (e.target.id === 'game') {
         store.dispatch(filterGame());
       }
-      if (e.target.checked === true && e.target.id === 'series') {
+      if (e.target.id === 'series') {
         store.dispatch(filterSeries());
       }
-      if (e.target.checked === true && e.target.id === 'episode') {
+      if (e.target.id === 'episode') {
         store.dispatch(filterEpisode());
       }
-      if (e.target.checked === true && e.target.id === 'poster') {
+      if (e.target.id === 'poster') {
         store.dispatch(filterPoster());
       }
     });

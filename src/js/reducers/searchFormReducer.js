@@ -1,13 +1,10 @@
-import { SEARCH_MOVIES } from '../actions/types';
-import { movieState } from '../store/movieState';
+import { SET_SEARCH } from '../actions/types';
+import { searchFormState } from '../store/searchFormState';
 
-export const searchFormReducer = (state = movieState, action) => {
+export const searchFormReducer = (state = searchFormState, action) => {
   switch (action.type) {
-    case SEARCH_MOVIES:
-      return {
-        ...state,
-        search: action.payload,
-      };
+    case SET_SEARCH:
+      return action.payload;
     default:
       return state;
   }

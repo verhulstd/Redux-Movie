@@ -1,6 +1,5 @@
 import { store } from '../store/store';
-import { searchMovie } from '../actions/searchFormActions';
-import { fetchMovies } from '../actions/movieActions';
+import { fetchMovies, setSearch } from '../actions/searchFormActions';
 
 export class SearchForm {
   constructor(holder) {
@@ -28,7 +27,7 @@ export class SearchForm {
       e.preventDefault();
       // get movies, fire the dispatch for getting the movies
       store.dispatch(
-        searchMovie(this._domRef.querySelector('.search__form__input').value)
+        setSearch(this._domRef.querySelector('.search__form__input').value)
       );
       store.dispatch(
         fetchMovies(this._domRef.querySelector('.search__form__input').value)
